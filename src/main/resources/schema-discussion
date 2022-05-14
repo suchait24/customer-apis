@@ -1,0 +1,68 @@
+
+customer
+- customer_id uuid
+- name
+- create_time
+
+contact_number
+
+- contact_detail_id
+- customer_id
+- contact_number
+- create_time
+- last_updated_time
+
+address
+- address_detail_id
+- customer_id
+- street_name
+- city -> master table for data
+- state -> master table for data
+- country -> master table for data
+- pincode -> master table for data
+- landmark
+- create_time
+- last_updated_time
+
+city_master
+ - city_id
+ - city
+
+payment_method
+- payment_method_id
+- customer_id
+- payment_method -> master table for data
+- create_time
+- last_updated_time
+
+customer_device
+- device_id
+- device -> master table for data
+- customer_id
+- create_time
+- last_updated_time
+
+
+
+any update/insert trigger
+contact_audit
+address_audit
+
+trigger on customer table any delete -> copy data  to customer_backup
+customer_backup
+
+---------------
+
+inventory
+
+
+
+
+
+
+
+
+
+
+
+

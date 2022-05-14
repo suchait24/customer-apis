@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: v3-database-creation
+      author: Suchait
+      changes:
+        - createTable:
+            tableName: address
+            columns:
+              - column:
+                  name: address_uuid
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: address_uuid_pkey
+              - column:
+                  name: customer_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: street
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: state
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pincode
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: landmark
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: create_time
+                  type: TIMESTAMP WITH TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_updated_time
+                  type: TIMESTAMP WITH TIME ZONE
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: customer_id
+            baseTableName: address
+            constraintName: fk_address
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: customer_id
+            referencedTableName: customer
+            validate: true

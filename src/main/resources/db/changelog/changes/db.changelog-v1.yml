@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-database-creation
+      author: Suchait
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: customer_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: customer_id_pkey
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: create_time
+                  type: TIMESTAMP WITH TIME ZONE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_updated_time
+                  type: TIMESTAMP WITH TIME ZONE
+                  constraints:
+                    nullable: false
