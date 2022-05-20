@@ -1,14 +1,26 @@
-server:
-  port: 8081
-
 spring:
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:postgresql://localhost:5432/workforce
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: test123
+    url: {customer.apis.datasource.url:jdbc:postgresql://localhost:5432/workforce}
+    driver-class-name: {customer.apis.datasource.driver.class:org.postgresql.Driver}
+    username: {customer.apis.datasource.username}
+    password: {customer.apis.datasource.password}
     type: com.zaxxer.hikari.HikariDataSource
+
+management:
+  health:
+    db:
+      enabled: true
+    defaults:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+
+
+springdoc:
+  swagger-ui:
+    enabled: true

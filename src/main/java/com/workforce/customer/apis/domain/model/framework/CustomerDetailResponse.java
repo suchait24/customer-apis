@@ -3,6 +3,8 @@ package com.workforce.customer.apis.domain.model.framework;
 import com.workforce.customer.apis.domain.model.entity.Address;
 import com.workforce.customer.apis.domain.model.entity.ContactNumber;
 import com.workforce.customer.apis.infra.model.ContactNumberDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.OffsetDateTime;

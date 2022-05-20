@@ -24,6 +24,7 @@ import javax.transaction.Transactional;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -89,8 +90,13 @@ public class CustomerServiceImpl implements CustomerService {
 
         Page<Customer> customerPages = new PageImpl<>(customerList, pageable, totalCount);
 
-        return CustomerPageable.builder().customerList(customerList)
+        List<CustomerDetailResponse> customerDetailResponses =
+                customerList.stream()
+                .map(customerMapper::fromCustomer).collect(Collectors.toList());
+
+        return CustomerPageable.builder().customerList(customerDetailResponses)
                 .totalCount(totalCount)
                 .totalPages(customerPages.getTotalPages()).build();
     }
+
 }
