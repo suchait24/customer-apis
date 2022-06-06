@@ -22,5 +22,7 @@ management:
 
 
 springdoc:
+  api-docs:
+    path: _interface
   swagger-ui:
-    enabled: true
+    enabled: false
